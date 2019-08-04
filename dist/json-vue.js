@@ -47,7 +47,7 @@
     function Render(jv, vm) {
       _classCallCheck(this, Render);
 
-      this.cache = new Map();
+      // readonly cache: Map<Rule, VNode | VNode[]> = new Map();
       this.templateCache = new Map();
       this.jv = jv;
       this.vm = vm;

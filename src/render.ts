@@ -2,11 +2,10 @@ import JsonVue, {Rule} from "./core";
 import Vue, {VNodeChildren, VNode} from "vue";
 import {isString, isType} from "./utils";
 
-//TODO unique自动补充 key
 export class Render {
     readonly jv: JsonVue;
     readonly vm: Vue;
-    readonly cache: Map<Rule, VNode | VNode[]> = new Map();
+    // readonly cache: Map<Rule, VNode | VNode[]> = new Map();
     readonly templateCache: Map<Rule, any> = new Map();
 
     constructor(jv: JsonVue, vm: Vue) {
