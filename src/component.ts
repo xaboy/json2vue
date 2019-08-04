@@ -7,8 +7,8 @@ export default function component(jv: JsonVue): ComponentOptions<Vue> {
     return <ComponentOptions<Vue>>{
         mixins: [jv.config],
         data() {
-            return <{ rule: Rule }>{
-                rule: jv.config.rule
+            return <{ jv_$rule: Rule }>{
+                jv_$rule: jv.config.rule
             };
         },
         beforeCreate(): void {

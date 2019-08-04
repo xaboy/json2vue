@@ -1,7 +1,7 @@
 {
   "name": "json-vue",
   "version": "0.0.1",
-  "description": "json to vue",
+  "description": "以json方式生成vue,可用于后端控制前端Vue组件生成",
   "main": "./dist/json-vue.min.js",
   "module": "./dist/json-vue.min.js",
   "unpkg": "./dist/json-vue.min.js",
@@ -16,7 +16,8 @@
   },
   "keywords": [
     "vue",
-    "json"
+    "json",
+    "json2vue"
   ],
   "author": "xaboy",
   "license": "MIT",
@@ -25,7 +26,6 @@
   },
   "homepage": "https://github.com/xaboy/json-vue#readme",
   "devDependencies": {
-    "@types/vue": "^2.0.0",
     "bili": "^4.8.1",
     "rollup-plugin-typescript2": "^0.22.1",
     "typescript": "^3.5.3"

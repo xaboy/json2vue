@@ -41,3 +41,6 @@ export default class JsonVue {
         return $vm;
     }
 }
+
+//@ts-ignore
+JsonVue.version = process.env.VERSION;

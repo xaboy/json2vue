@@ -44,11 +44,11 @@
   var Render =
   /*#__PURE__*/
   function () {
+    // readonly cache: Map<Rule, VNode | VNode[]> = new Map();
+    // readonly templateCache: Map<Rule, any> = new Map();
     function Render(jv, vm) {
       _classCallCheck(this, Render);
 
-      // readonly cache: Map<Rule, VNode | VNode[]> = new Map();
-      this.templateCache = new Map();
       this.jv = jv;
       this.vm = vm;
     }
@@ -58,7 +58,8 @@
       value: function render() {
         var _this = this;
 
-        var rule = this.jv.config.rule;
+        //@ts-ignore
+        var rule = this.vm.jv_$rule;
         if (isType(rule, 'Function')) rule = rule.call(this.vm);
         return Array.isArray(rule) ? rule.map(function (rule) {
           return _this.renderRule(rule);
@@ -89,15 +90,16 @@
         if (Vue.compile === undefined) {
           console.error("使用的 Vue 版本不支持 compile");
           return [];
-        }
+        } // if (!this.templateCache.has(rule) && rule.template) {
+        //     if (!rule.vm) rule.vm = new Vue();
+        //     this.templateCache.set(rule, Vue.compile(rule.template));
+        // }
 
-        if (!this.templateCache.has(rule) && rule.template) {
-          if (!rule.vm) rule.vm = new Vue();
-          this.templateCache.set(rule, Vue.compile(rule.template));
-        }
 
         setTemplateProps(rule);
-        var vn = this.templateCache.get(rule).render.call(rule.vm);
+        if (!rule.vm) rule.vm = new Vue(); //@ts-ignore
+
+        var vn = Vue.compile(rule.template).render.call(rule.vm);
         return vn;
       }
     }]);
@@ -128,7 +130,7 @@
       mixins: [jv.config],
       data: function data() {
         return {
-          rule: jv.config.rule
+          jv_$rule: jv.config.rule
         };
       },
       beforeCreate: function beforeCreate() {
@@ -163,7 +165,8 @@
     }]);
 
     return JsonVue;
-  }();
+  }(); //@ts-ignore
+  JsonVue.version = "0.0.1";
 
   if (typeof window !== 'undefined') //@ts-ignore
     window['jsonVue'] = JsonVue;

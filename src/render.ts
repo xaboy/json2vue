@@ -5,8 +5,6 @@ import {isString, isType} from "./utils";
 export class Render {
     readonly jv: JsonVue;
     readonly vm: Vue;
-    // readonly cache: Map<Rule, VNode | VNode[]> = new Map();
-    readonly templateCache: Map<Rule, any> = new Map();
 
     constructor(jv: JsonVue, vm: Vue) {
         this.jv = jv;
@@ -14,7 +12,9 @@ export class Render {
     }
 
     render(): VNode | VNode[] {
-        let {rule} = this.jv.config;
+
+        //@ts-ignore
+        let rule = this.vm.jv_$rule;
 
         if (isType(rule, 'Function'))
             rule = (<Function>rule).call(this.vm);
@@ -43,14 +43,12 @@ export class Render {
             return [];
         }
 
-        if (!this.templateCache.has(rule) && rule.template) {
-            if (!rule.vm) rule.vm = new Vue();
-            this.templateCache.set(rule, Vue.compile(rule.template));
-        }
-
         setTemplateProps(rule);
 
-        const vn = <VNode>this.templateCache.get(rule).render.call(rule.vm);
+        if (!rule.vm) rule.vm = new Vue();
+
+        //@ts-ignore
+        const vn = <VNode>Vue.compile(<string>rule.template).render.call(rule.vm);
 
         return vn;
     }
