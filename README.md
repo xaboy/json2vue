@@ -1,4 +1,4 @@
-# json-vue
+# json2vue
 **以json方式生成vue,可用于后端控制前端Vue组件生成**
 
 本项目从[form-create](https://github.com/xaboy/form-create)项目中抽出,成为独立的功能

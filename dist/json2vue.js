@@ -1,13 +1,13 @@
 /*!
- * json-vue v0.0.1
+ * json2vue v0.0.1
  * (c) 2018-2019 xaboy
- * Github https://github.com/xaboy/json-vue
+ * Github https://github.com/xaboy/json2vue
  * Released under the MIT License.
  */
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('vue')) :
   typeof define === 'function' && define.amd ? define(['vue'], factory) :
-  (global = global || self, global['json-vue'] = factory(global.Vue));
+  (global = global || self, global.json2vue = factory(global.Vue));
 }(this, function (Vue) { 'use strict';
 
   Vue = Vue && Vue.hasOwnProperty('default') ? Vue['default'] : Vue;
@@ -44,8 +44,6 @@
   var Render =
   /*#__PURE__*/
   function () {
-    // readonly cache: Map<Rule, VNode | VNode[]> = new Map();
-    // readonly templateCache: Map<Rule, any> = new Map();
     function Render(jv, vm) {
       _classCallCheck(this, Render);
 
@@ -90,11 +88,7 @@
         if (Vue.compile === undefined) {
           console.error("使用的 Vue 版本不支持 compile");
           return [];
-        } // if (!this.templateCache.has(rule) && rule.template) {
-        //     if (!rule.vm) rule.vm = new Vue();
-        //     this.templateCache.set(rule, Vue.compile(rule.template));
-        // }
-
+        }
 
         setTemplateProps(rule);
         if (!rule.vm) rule.vm = new Vue(); //@ts-ignore

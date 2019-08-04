@@ -1,19 +1,26 @@
 {
-  "name": "json-vue",
-  "version": "0.0.1",
+  "name": "json2vue",
+  "version": "0.0.2",
   "description": "以json方式生成vue,可用于后端控制前端Vue组件生成",
-  "main": "./dist/json-vue.min.js",
-  "module": "./dist/json-vue.min.js",
-  "unpkg": "./dist/json-vue.min.js",
-  "jsdelivr": "./dist/json-vue.min.js",
+  "main": "./dist/json2vue.min.js",
+  "module": "./dist/json2vue.min.js",
+  "unpkg": "./dist/json2vue.min.js",
+  "jsdelivr": "./dist/json2vue.min.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "bili"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/xaboy/json-vue.git"
+    "url": "git+https://github.com/xaboy/json2vue.git"
   },
+  "files": [
+    "README.md",
+    "package.json",
+    "LICENSE",
+    "src",
+    "dist"
+  ],
   "keywords": [
     "vue",
     "json",
@@ -22,9 +29,9 @@
   "author": "xaboy",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/xaboy/json-vue/issues"
+    "url": "https://github.com/xaboy/json2vue/issues"
   },
-  "homepage": "https://github.com/xaboy/json-vue#readme",
+  "homepage": "https://github.com/xaboy/json2vue#readme",
   "devDependencies": {
     "bili": "^4.8.1",
     "rollup-plugin-typescript2": "^0.22.1",

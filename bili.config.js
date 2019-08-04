@@ -9,7 +9,7 @@ module.exports = {
         commonjs: true
     },
     banner: {
-        author: `2018-${new Date().getFullYear()} ${author}\n * Github https://github.com/xaboy/json-vue`,
+        author: `2018-${new Date().getFullYear()} ${author}\n * Github https://github.com/xaboy/json2vue`,
         license,
         name,
         version
@@ -20,8 +20,8 @@ module.exports = {
     externals: ['vue', 'Vue'],
     output: {
         format: ['umd', 'umd-min'],
-        moduleName: 'json-vue',
-        fileName: 'json-vue[min].js'
+        moduleName: 'json2vue',
+        fileName: 'json2vue[min].js'
     },
     input: join(cwd, '/src/index.ts'),
     env: {
