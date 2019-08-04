@@ -11,7 +11,7 @@ function mock(){
   return {
     rule:[
       {
-        type:'el-button',
+        type:'ElButton',
         ref:'btn',
         props:{
           disabled:true
@@ -52,7 +52,7 @@ function mock(){
 		rule:function(){
 			return [
         {
-          type:'el-button',
+          type:'ElButton',
           ref:'btn',
           props:{
             disabled:this.disabled
