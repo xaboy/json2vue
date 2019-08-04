@@ -1,0 +1,36 @@
+{
+  "name": "json-vue",
+  "version": "0.0.1",
+  "description": "json to vue",
+  "main": "./dist/json-vue.min.js",
+  "module": "./dist/json-vue.min.js",
+  "unpkg": "./dist/json-vue.min.js",
+  "jsdelivr": "./dist/json-vue.min.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "bili"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xaboy/json-vue.git"
+  },
+  "keywords": [
+    "vue",
+    "json"
+  ],
+  "author": "xaboy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xaboy/json-vue/issues"
+  },
+  "homepage": "https://github.com/xaboy/json-vue#readme",
+  "devDependencies": {
+    "@types/vue": "^2.0.0",
+    "bili": "^4.8.1",
+    "rollup-plugin-typescript2": "^0.22.1",
+    "typescript": "^3.5.3"
+  },
+  "dependencies": {
+    "vue": "^2.6.10"
+  }
+}
