@@ -43,14 +43,14 @@ var vm = new Vue({
 ## 示例2
 ```js
 function mock(){
-	return {
-		data:function(){
-			return {
-		    disabled:false
-	    }
-		},
-		rule:function(){
-			return [
+  return {
+    data:function(){
+      return {
+        disabled:false
+      }
+    },
+    rule:function(){
+      return [
         {
           type:'ElButton',
           ref:'btn',
@@ -64,12 +64,12 @@ function mock(){
           },
           children:['test']
         }
-			]
-		},
-		mounted(){
-			console.log(this)
-		}
-	};
+      ]
+    },
+    mounted(){
+      console.log(this)
+    }
+  };
 }
 var jv = new jsonVue(mock())
 var vm = jv.mount('#app');
