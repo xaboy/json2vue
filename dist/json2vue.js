@@ -1,5 +1,5 @@
 /*!
- * json2vue v0.0.1
+ * json2vue v0.0.2
  * (c) 2018-2019 xaboy
  * Github https://github.com/xaboy/json2vue
  * Released under the MIT License.
@@ -160,7 +160,7 @@
 
     return JsonVue;
   }(); //@ts-ignore
-  JsonVue.version = "0.0.1";
+  JsonVue.version = "0.0.2";
 
   if (typeof window !== 'undefined') //@ts-ignore
     window['jsonVue'] = JsonVue;
