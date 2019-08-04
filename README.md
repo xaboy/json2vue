@@ -1,20 +1,22 @@
 # json-vue
-以json方式生成vue
+以json方式生成vue,可用于后端控制前端Vue组件生成
+
+>本项目从[form-create](https://github.com/xaboy/form-create)项目中抽出,成为独立的功能
 
 ## 示例1
 ```js
 function mock(){
 	return {
 		rule:[
-            {
-                type:'el-button',
-                ref:'btn',
-                props:{
-                    disabled:true
-                },
-                children:['test']
-            }
-        ],
+      {
+        type:'el-button',
+        ref:'btn',
+        props:{
+            disabled:true
+        },
+        children:['test']
+      }
+    ],
 		mounted(){
 			console.log(this)
 		}
@@ -29,10 +31,10 @@ var vm = jv.mount('#app');
 ```
 ```js
 var vm = new Vue({
-    el:'#app',
-    mounted(){
-        console.log(this)
-    }
+  el:'#app',
+  mounted(){
+    console.log(this)
+  }
 })
 ```
 
@@ -42,26 +44,25 @@ function mock(){
 	return {
 		data:function(){
 			return {
-			    disabled:false
-		    }
+		    disabled:false
+	    }
 		},
 		rule:function(){
 			return [
-                {
-                    type:'el-button',
-                    ref:'btn',
-                    props:{
-                        disabled:this.disabled
-                    },
-                    on:{
-                        click:()=>{
-                            this.disabled = true;
-                        }
-                    },
-                    children:['test']
-                }
+        {
+          type:'el-button',
+          ref:'btn',
+          props:{
+            disabled:this.disabled
+          },
+          on:{
+            click:()=>{
+              this.disabled = true;
+            }
+          },
+          children:['test']
+        }
 			]
-
 		},
 		mounted(){
 			console.log(this)
@@ -77,14 +78,14 @@ var vm = jv.mount('#app');
 ```
 ```js
 var vm = new Vue({
-    el:'#app',
-    data:function(){
-        return {
-            disabled: false
-        }
-    },
-    mounted(){
-        console.log(this)
+  el:'#app',
+  data:function(){
+    return {
+      disabled: false
     }
+  },
+  mounted(){
+      console.log(this)
+  }
 })
 ```
