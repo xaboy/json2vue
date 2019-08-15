@@ -11,7 +11,7 @@ export class Render {
         this.vm = vm;
     }
 
-    render(): VNode | VNode[] {
+    render(): VNode {
 
         //@ts-ignore
         let rule = this.vm.jv_$rule;
@@ -19,9 +19,9 @@ export class Render {
         if (isType(rule, 'Function'))
             rule = (<Function>rule).call(this.vm);
 
-        return Array.isArray(rule) ? <VNode[]>rule.map(rule => {
+        return Array.isArray(rule) ? this.vm.$createElement('div', {}, rule.map(rule => {
             return this.renderRule(rule);
-        }) : <VNode>this.renderRule(<Rule>rule);
+        })) : <VNode>this.renderRule(<Rule>rule);
     }
 
     renderRule(rule: Rule): VNode | VNode[] {
