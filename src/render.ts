@@ -66,7 +66,7 @@ function getProps(rule: Rule) {
 }
 
 function setTemplateProps(rule: Rule) {
-    if (!rule.vm!.$props) return;
+    if (!rule.vm.$props || !rule.props) return;
 
     const keys = Object.keys(rule.vm!.$props);
     keys.forEach(key => {
