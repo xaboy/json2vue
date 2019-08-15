@@ -1,6 +1,6 @@
 {
   "name": "json2vue",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "以json方式生成vue,可用于后端控制前端Vue组件生成",
   "main": "./dist/json2vue.min.js",
   "module": "./dist/json2vue.min.js",

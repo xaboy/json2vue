@@ -1,5 +1,5 @@
 /*!
- * json2vue v0.0.2
+ * json2vue v0.0.3
  * (c) 2018-2019 xaboy
  * Github https://github.com/xaboy/json2vue
  * Released under the MIT License.
@@ -59,9 +59,9 @@
         //@ts-ignore
         var rule = this.vm.jv_$rule;
         if (isType(rule, 'Function')) rule = rule.call(this.vm);
-        return Array.isArray(rule) ? rule.map(function (rule) {
+        return Array.isArray(rule) ? this.vm.$createElement('div', {}, rule.map(function (rule) {
           return _this.renderRule(rule);
-        }) : this.renderRule(rule);
+        })) : this.renderRule(rule);
       }
     }, {
       key: "renderRule",
@@ -90,8 +90,8 @@
           return [];
         }
 
-        setTemplateProps(rule);
-        if (!rule.vm) rule.vm = new Vue(); //@ts-ignore
+        if (!rule.vm) rule.vm = new Vue();
+        setTemplateProps(rule); //@ts-ignore
 
         var vn = Vue.compile(rule.template).render.call(rule.vm);
         return vn;
@@ -111,7 +111,7 @@
   }
 
   function setTemplateProps(rule) {
-    if (!rule.vm.$props) return;
+    if (!rule.vm.$props || !rule.props) return;
     var keys = Object.keys(rule.vm.$props);
     keys.forEach(function (key) {
       if (rule.props[key] !== undefined) rule.vm.$props[key] = rule.props[key];
@@ -160,7 +160,7 @@
 
     return JsonVue;
   }(); //@ts-ignore
-  JsonVue.version = "0.0.2";
+  JsonVue.version = "0.0.3";
 
   if (typeof window !== 'undefined') //@ts-ignore
     window['jsonVue'] = JsonVue;
