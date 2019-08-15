@@ -43,9 +43,9 @@ export class Render {
             return [];
         }
 
-        setTemplateProps(rule);
-
         if (!rule.vm) rule.vm = new Vue();
+
+        setTemplateProps(rule);
 
         //@ts-ignore
         const vn = <VNode>Vue.compile(<string>rule.template).render.call(rule.vm);
